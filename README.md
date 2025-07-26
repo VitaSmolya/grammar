@@ -1,113 +1,50 @@
+
 <!DOCTYPE html>
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <title>Озвучення у формі таблиці</title>
-  <style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-    th, td {
-      border: 1px solid #999;
-      padding: 10px;
-      text-align: center;
-    }
-    audio {
-      width: 100%;
-    }
-  </style>
+  <title>Озвучення трьома мовами (Web Speech API)</title>
 </head>
 <body>
-  <h2>🔊 Озвучення таблиці: Бути + частини мови (3 мови, 3 часи)</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Частина мови</th>
-        <th>🇺🇦 Українська</th>
-        <th>🇬🇧 Англійська</th>
-        <th>🇪🇸 Іспанська</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Іменник</td>
-        <td>
-          Я є лікар.<br>
-          <audio controls><source src="https://translate.google.com/translate_tts?ie=UTF-8&q=Я+є+лікар&tl=uk&client=tw-ob" type="audio/mpeg"></audio>
-        </td>
-        <td>
-          I am a doctor.<br>
-          <audio controls><source src="https://translate.google.com/translate_tts?ie=UTF-8&q=I+am+a+doctor&tl=en&client=tw-ob" type="audio/mpeg"></audio>
-        </td>
-        <td>
-          Yo soy médico.<br>
-          <audio controls><source src="https://translate.google.com/translate_tts?ie=UTF-8&q=Yo+soy+médico&tl=es&client=tw-ob" type="audio/mpeg"></audio>
-        </td>
-      </tr>
-      <tr>
-        <td>Прикметник</td>
-        <td>
-          Вона є добра.<br>
-          <audio controls><source src="https://translate.google.com/translate_tts?ie=UTF-8&q=Вона+є+добра&tl=uk&client=tw-ob" type="audio/mpeg"></audio>
-        </td>
-        <td>
-          She is kind.<br>
-          <audio controls><source src="https://translate.google.com/translate_tts?ie=UTF-8&q=She+is+kind&tl=en&client=tw-ob" type="audio/mpeg"></audio>
-        </td>
-        <td>
-          Ella está feliz.<br>
-          <audio controls><source src="https://translate.google.com/translate_tts?ie=UTF-8&q=Ella+está+feliz&tl=es&client=tw-ob" type="audio/mpeg"></audio>
-        </td>
-      </tr>
-      <tr>
-        <td>Прислівник</td>
-        <td>
-          Ми є тут.<br>
-          <audio controls><source src="https://translate.google.com/translate_tts?ie=UTF-8&q=Ми+є+тут&tl=uk&client=tw-ob" type="audio/mpeg"></audio>
-        </td>
-        <td>
-          We are here.<br>
-          <audio controls><source src="https://translate.google.com/translate_tts?ie=UTF-8&q=We+are+here&tl=en&client=tw-ob" type="audio/mpeg"></audio>
-        </td>
-        <td>
-          Nosotros estamos aquí.<br>
-          <audio controls><source src="https://translate.google.com/translate_tts?ie=UTF-8&q=Nosotros+estamos+aqu%C3%AD&tl=es&client=tw-ob" type="audio/mpeg"></audio>
-        </td>
-      </tr>
-      <tr>
-        <td>Числівник</td>
-        <td>
-          Їх є троє.<br>
-          <audio controls><source src="https://translate.google.com/translate_tts?ie=UTF-8&q=Їх+є+троє&tl=uk&client=tw-ob" type="audio/mpeg"></audio>
-        </td>
-        <td>
-          There are three of them.<br>
-          <audio controls><source src="https://translate.google.com/translate_tts?ie=UTF-8&q=There+are+three+of+them&tl=en&client=tw-ob" type="audio/mpeg"></audio>
-        </td>
-        <td>
-          Son tres.<br>
-          <audio controls><source src="https://translate.google.com/translate_tts?ie=UTF-8&q=Son+tres&tl=es&client=tw-ob" type="audio/mpeg"></audio>
-        </td>
-      </tr>
-      <tr>
-        <td>Займенник</td>
-        <td>
-          Це є вона.<br>
-          <audio controls><source src="https://translate.google.com/translate_tts?ie=UTF-8&q=Це+є+вона&tl=uk&client=tw-ob" type="audio/mpeg"></audio>
-        </td>
-        <td>
-          This is her.<br>
-          <audio controls><source src="https://translate.google.com/translate_tts?ie=UTF-8&q=This+is+her&tl=en&client=tw-ob" type="audio/mpeg"></audio>
-        </td>
-        <td>
-          Esta es ella.<br>
-          <audio controls><source src="https://translate.google.com/translate_tts?ie=UTF-8&q=Esta+es+ella&tl=es&client=tw-ob" type="audio/mpeg"></audio>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <h2>🗣 Озвучення 5 речень трьома мовами</h2>
+  <p>Натисніть кнопку, щоб почути озвучення українською, англійською або іспанською.</p>
 
-  <p>🔔 Якщо щось не працює — перевір дозвіл на звук, вимкни блокувальники, або відкрий в іншому браузері.</p>
+  <p><strong>1. Я є лікар. / I am a doctor. / Yo soy médico.</strong><br>
+    <button onclick="speak('Я є лікар.', 'uk-UA')">🇺🇦 Озвучити</button>
+    <button onclick="speak('I am a doctor.', 'en-US')">🇬🇧 Speak</button>
+    <button onclick="speak('Yo soy médico.', 'es-ES')">🇪🇸 Hablar</button>
+  </p>
+
+  <p><strong>2. Вона є добра. / She is kind. / Ella está feliz.</strong><br>
+    <button onclick="speak('Вона є добра.', 'uk-UA')">🇺🇦 Озвучити</button>
+    <button onclick="speak('She is kind.', 'en-US')">🇬🇧 Speak</button>
+    <button onclick="speak('Ella está feliz.', 'es-ES')">🇪🇸 Hablar</button>
+  </p>
+
+  <p><strong>3. Ми є тут. / We are here. / Nosotros estamos aquí.</strong><br>
+    <button onclick="speak('Ми є тут.', 'uk-UA')">🇺🇦 Озвучити</button>
+    <button onclick="speak('We are here.', 'en-US')">🇬🇧 Speak</button>
+    <button onclick="speak('Nosotros estamos aquí.', 'es-ES')">🇪🇸 Hablar</button>
+  </p>
+
+  <p><strong>4. Їх є троє. / There are three of them. / Son tres.</strong><br>
+    <button onclick="speak('Їх є троє.', 'uk-UA')">🇺🇦 Озвучити</button>
+    <button onclick="speak('There are three of them.', 'en-US')">🇬🇧 Speak</button>
+    <button onclick="speak('Son tres.', 'es-ES')">🇪🇸 Hablar</button>
+  </p>
+
+  <p><strong>5. Це є вона. / This is her. / Esta es ella.</strong><br>
+    <button onclick="speak('Це є вона.', 'uk-UA')">🇺🇦 Озвучити</button>
+    <button onclick="speak('This is her.', 'en-US')">🇬🇧 Speak</button>
+    <button onclick="speak('Esta es ella.', 'es-ES')">🇪🇸 Hablar</button>
+  </p>
+
+  <script>
+    function speak(text, lang) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = lang;
+      speechSynthesis.speak(utterance);
+    }
+  </script>
 </body>
 </html>
